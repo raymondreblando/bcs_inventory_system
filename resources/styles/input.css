@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, 
+*::before, 
+*::after{
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*{
+  @apply tracking-tighter;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Baloo 2', cursive;
+}
+
+li{
+  list-style: none;
+}
+
+input,
+select,
+textarea{
+  font-family: 'Baloo 2', cursive;
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 9px solid #2563eb;
+  animation: spinner-bulqg1 0.8s infinite linear alternate,
+       spinner-oaa3wk 1.6s infinite linear;
+}
+
+@keyframes spinner-bulqg1 {
+  0% {
+     clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  }
+
+  12.5% {
+     clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  }
+
+  25% {
+     clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%);
+  }
+
+  50% {
+     clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+  }
+
+  62.5% {
+     clip-path: polygon(50% 50%, 100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+  }
+
+  75% {
+     clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%);
+  }
+
+  100% {
+     clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%);
+  }
+}
+
+@keyframes spinner-oaa3wk {
+  0% {
+     transform: scaleY(1) rotate(0deg);
+  }
+
+  49.99% {
+     transform: scaleY(1) rotate(135deg);
+  }
+
+  50% {
+     transform: scaleY(-1) rotate(0deg);
+  }
+
+  100% {
+     transform: scaleY(-1) rotate(-135deg);
+  }
+}
+
+.loader{
+  @apply fixed inset-0 z-[100] bg-white flex flex-col items-center justify-center gap-8 invisible opacity-0;
+}
+
+.loader.show{
+  @apply visible opacity-100 transition-all;
+}
+
+.sidebar{
+  @apply fixed md:static -left-full top-0 min-h-screen flex flex-col opacity-0 md:opacity-100 invisible md:visible bg-white border-r border-r-gray-300/40 z-10;
+}
+
+.sidebar.show{
+  @apply left-0 opacity-100 visible transition-all;
+}
+
+.aside__link{
+  @apply relative flex items-center gap-4 text-[13px] font-medium text-gray-500 py-2 px-6 hover:bg-blue-100 hover:text-primary transition-all duration-200;
+}
+
+.aside__link.active{
+  @apply bg-blue-100 before:absolute before:left-0 before:w-[6px] before:h-full before:bg-primary before:rounded-tr-lg before:rounded-br-lg text-primary;
+}
+
+.pagination a.active{
+  @apply bg-primary text-white;
+}
+
+th{
+  @apply text-xs text-gray-500 font-medium uppercase py-4 px-4 border-y border-y-gray-300/40;
+}
+
+td{
+  @apply text-xs text-gray-700 font-semibold py-5 px-4;
+}
+
+.status-pending{
+  @apply text-orange-500;
+}
+
+.status-completed{
+  @apply text-emerald-500;
+}
+
+.status-cancelled{
+  @apply text-rose-500;
+}

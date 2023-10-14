@@ -1,0 +1,29 @@
+.d-none {
+       display: none;
+}
+@media print {
+       @page {
+              size: auto; /* Use auto to match the user's default paper size */
+              margin: 0mm; /* Set margins to 0 to prevent default headers/footers */
+       
+              /* Use margin boxes to control header and footer content */
+              margin-top: 0;
+              margin-bottom: 0;
+       
+              /* Set header and footer content to display nothing */
+              marks: none; /* Hide crop marks and other marks */
+              header: none; /* Hide the header */
+              footer: none; /* Hide the footer */
+       }
+
+       /* Add a margin to the content area */
+       body {
+              margin: 4rem 3rem;
+       }
+       .d-none {
+              display: block;
+       }
+       .print-hidden {
+              display: none;
+       }
+}
